@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbstractClasses
+
+namespace ConsoleUI
 {
     class Program
     {
@@ -33,17 +34,65 @@ namespace AbstractClasses
 
             // Create a list of Vehicle called vehicles
 
+             List<Vehicle> vehicles = new List<Vehicle>();
+
             /*
              * Create 4 instances, 1 Car, 1 Motorcycle, and then 2 Vehicles - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+
+            Car myFirstCar = new Car()
+            {
+                Make = "Cadillac",
+                Model = "SRX",
+                Year = "2014",
+                HasFourWheels = true,
+                HasTrunk = true
+            };
+            Motorcycle myFirstBike = new Motorcycle()
+            {
+                Make = "Harley Davidson",
+                Model = "Sportster",
+                Year = "2013",
+                HasTwoWheels = true,
+                HasSideCar = true
+            };
+            Vehicle myDreamCar = new Car()
+            {
+                Make = "Ford",
+                Model = "Mustang",
+                Year = "1969",
+                HasFourWheels = true,
+                HasTrunk = true
+            };
+            Vehicle myDreamBike = new Motorcycle()
+            {
+                Make = "Harley Davidson",
+                Model = "Shovel Head",
+                Year = "1984",
+                HasSideCar = true,
+                HasTwoWheels = true
+            };
 
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
+            vehicles.Add(myFirstCar);
+            vehicles.Add(myFirstBike);
+            vehicles.Add(myDreamCar);
+            vehicles.Add(myDreamBike);
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle);
+            }
+
             // Call each of the drive methods for one car and one motorcycle
+
+            myFirstCar.DriveAbstract();
+            myFirstBike.DriveAbstract();
 
             #endregion            
             Console.ReadLine();
